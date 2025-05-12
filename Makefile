@@ -89,7 +89,6 @@ fclean: clean	## Clean libft archive
 	@echo "* $(RED)Removing $(NAME) archive and .build directory$(D)"
 	$(RM) $(NAME)
 	$(RM) $(BUILD_PATH)
-	$(RM) $(TEMP_PATH)
 	@echo "* $(YEL)Cleaning $(NAME) archive and .build directory!$(D) $(_SUCCESS) $(YEL)🖔$(D)"
 
 re: fclean extra	## Clean and re-compile libft
