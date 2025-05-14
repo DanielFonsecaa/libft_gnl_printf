@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-size_t	ft_strlcat(char *dst, char *src, size_t size)
+size_t	ft_strlcat_gnl(char *dst, char *src, size_t size)
 {
 	size_t	i;
 	size_t	len_dst;
@@ -67,7 +67,7 @@ char	*ft_append(char *old, char *buffer)
 	return (new);
 }
 
-void	*ft_memchr(void *s, int c, size_t n)
+void	*ft_memchr_gnl(void *s, int c, size_t n)
 {
 	size_t			i;
 	unsigned char	*c1;
