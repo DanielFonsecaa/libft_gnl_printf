@@ -1,6 +1,6 @@
 # libft_gnl_printf
 
-A C library that combines [libft](https://github.com/DanielFonsecaa/libft_gnl_printf/tree/main/libft), [get_next_line](https://github.com/DanielFonsecaa/libft_gnl_printf/tree/main/gnl), and [printf](https://github.com/DanielFonsecaa/libft_gnl_printf/tree/main/printf) functionalities into a single, reusable package.  
+A C library that combines [libft](https://github.com/DanielFonsecaa/Libft-42), [get_next_line](https://github.com/DanielFonsecaa/Get_next_line-42), and [printf](https://github.com/DanielFonsecaa/Printf-42) functionalities into a single, reusable package.  
 This project is designed for use in C programming assignments and as a foundation for future C projects.
 
 ## Features
