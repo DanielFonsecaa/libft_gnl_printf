@@ -66,11 +66,9 @@ static char	**ft_while(char c, const char *s, char **strings, size_t start)
 {
 	size_t	i;
 	size_t	j;
-	size_t	k;
 
 	i = 0;
 	j = 0;
-	k = 0;
 	while (i < ft_count_words((char *)s, c))
 	{
 		while (s[j] == c && s[j])
