@@ -29,7 +29,7 @@ _NORM_INFO 		= $(BLU)File no:$(D)
 #                            FLAGS & CMDS                                      #
 #==============================================================================#
 
-MAKE		= make -C
+MAKE		= make --no-print-directory -C
 CFLAGS		= -Wall -Wextra -Werror
 CFLAGS		+= -g
 # CFLAGS		+= -lm
@@ -49,7 +49,7 @@ MKDIR_P		= mkdir -p
 all: $(NAME)	## Compile Basic libft
 
 $(BUILD_PATH):
-	$(MKDIR_P) $(BUILD_PATH)
+	@$(MKDIR_P) $(BUILD_PATH)
 	@echo " $(YEL)Creating $(BUILD_PATH) folder:$(D) $(_SUCCESS)"
 
 $(BUILD_PATH)/%.o: $(LIBFT_PATH)/%.c
