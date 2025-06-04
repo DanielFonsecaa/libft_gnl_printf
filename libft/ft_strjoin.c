@@ -15,12 +15,10 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*ret;
-	size_t	i;
 	size_t	size;
 
 	if (!s1 || !s2)
 		return (NULL);
-	i = 0;
 	size = ft_strlen(s1) + ft_strlen(s2) + 1;
 	ret = malloc(size);
 	if (!ret)
