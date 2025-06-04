@@ -50,34 +50,34 @@ all: $(NAME)	## Compile Basic libft
 
 $(BUILD_PATH):
 	$(MKDIR_P) $(BUILD_PATH)
-	@echo "* $(YEL)Creating $(BUILD_PATH) folder:$(D) $(_SUCCESS)"
+	@echo " $(YEL)Creating $(BUILD_PATH) folder:$(D) $(_SUCCESS)"
 
 $(BUILD_PATH)/%.o: $(LIBFT_PATH)/%.c
 	@echo -n "$(GRN)█$(D)"
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(BUILD_PATH)/%.o: $(PRINTF_PATH)/%.c
 	@echo -n "$(GRN)█$(D)"
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(BUILD_PATH)/%.o: $(GNL_PATH)/%.c
 	@echo -n "$(GRN)█$(D)"
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(BUILD_PATH) $(OBJS)
-	@echo "* $(YEL)Archiving $(_NAME) archive$(D)"
+	@echo " $(YEL)Archiving $(_NAME) archive$(D)"
 	$(AR) $(NAME) $(OBJS)
-	@echo "* $(_NAME) archived: $(_SUCCESS) $(YEL)🖔$(D)"
+	@echo " $(_NAME) archived: $(_SUCCESS) $(YEL)🖔$(D)"
 
 bonus: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS)	## Compile libft with bonus
-	@echo "* $(YEL)Archiving $(_NAME) w/ bonus$(D)"
+	@echo " $(YEL)Archiving $(_NAME) w/ bonus$(D)"
 	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
-	@echo "* $(_NAME) archived w/ bonus: $(_SUCCESS) $(YEL)🖔$(D)"
+	@echo " $(_NAME) archived w/ bonus: $(_SUCCESS) $(YEL)🖔$(D)"
 
 extra: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(GNL_OBJS) $(PRINTF_OBJS) $(FPRINTF_OBJS) ## Compile libft with extra
-	@echo "* $(YEL)Archiving $(_NAME) w/ extras$(D)"
+	@echo " $(YEL)Archiving $(_NAME)$(D)"
 	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(GNL_OBJS) $(PRINTF_OBJS) $(FPRINTF_OBJS)
-	@echo "* $(_NAME) archived w/ extras: $(_SUCCESS) $(YEL)🖔$(D)"
+	@echo " $(_NAME) archived: $(_SUCCESS) $(YEL)🖔$(D)"
 
 
 clean:			## Clean libft binaries
@@ -86,13 +86,13 @@ clean:			## Clean libft binaries
 	@echo "* $(YEL)Cleaning libft binaries!$(D) $(_SUCCESS) $(YEL)🖔$(D)"
 
 fclean: clean	## Clean libft archive
-	@echo "* $(RED)Removing $(NAME) archive and .build directory$(D)"
+	@echo " $(RED)Removing $(NAME) archive and .build directory$(D)"
 	$(RM) $(NAME)
 	$(RM) $(BUILD_PATH)
-	@echo "* $(YEL)Cleaning $(NAME) archive and .build directory!$(D) $(_SUCCESS) $(YEL)🖔$(D)"
+	@echo " $(YEL)Cleaning $(NAME) archive and .build directory!$(D) $(_SUCCESS) $(YEL)🖔$(D)"
 
 re: fclean extra	## Clean and re-compile libft
-	@echo "* Cleaning & re-compiling libft!=: $(_SUCCESS) $(YEL)🖔$(D)"
+	@echo " Cleaning & re-compiling libft!=: $(_SUCCESS) $(YEL)🖔$(D)"
 
 .PHONY: all bonus extra clean fclean re help
 
