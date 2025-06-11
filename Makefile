@@ -18,7 +18,7 @@ PRINTF_OBJS	= $(addprefix $(BUILD_PATH)/, $(notdir $(PRINTF_SRC:.c=.o)))
 GNL_OBJS	= $(addprefix $(BUILD_PATH)/, $(notdir $(GNL_SRC:.c=.o)))
 
 ### Message Vars
-_NAME	 		= [$(B)$(AQUA)libft$(D)]
+_NAME	 		= $(B)$(AQUA)libft$(D)
 _SUCCESS 		= [$(B)$(GRN)SUCCESS$(D)]
 _INFO 			= [$(B)$(BLU)INFO$(D)]
 _NORM 			= [$(B)$(YEL)Norminette$(D)]
@@ -76,7 +76,7 @@ bonus: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS)	## Compile libft with bonus
 
 extra: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(GNL_OBJS) $(PRINTF_OBJS) $(FPRINTF_OBJS) ## Compile libft with extra
 	@$(AR) $(NAME) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(GNL_OBJS) $(PRINTF_OBJS) $(FPRINTF_OBJS)
-	@echo "    $(_NAME) archived : $(_SUCCESS)✔︎ 💾$(D)"
+	@echo "  $(B)$(AQUA)libft archived : $(_SUCCESS) ✔︎ 💾$(D)"
 
 
 clean:			## Clean libft binaries
