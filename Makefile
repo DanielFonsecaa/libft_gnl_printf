@@ -18,12 +18,12 @@ PRINTF_OBJS	= $(addprefix $(BUILD_PATH)/, $(notdir $(PRINTF_SRC:.c=.o)))
 GNL_OBJS	= $(addprefix $(BUILD_PATH)/, $(notdir $(GNL_SRC:.c=.o)))
 
 ### Message Vars
-_NAME	 		= [$(MAG)libft$(D)]
-_SUCCESS 		= [$(GRN)SUCCESS$(D)]
-_INFO 			= [$(BLU)INFO$(D)]
-_NORM 			= [$(YEL)Norminette$(D)]
-_NORM_SUCCESS 	= $(GRN)=== OK:$(D)
-_NORM_INFO 		= $(BLU)File no:$(D)
+_NAME	 		= [$(B)$(MAG)libft$(D)]
+_SUCCESS 		= [$(B)$(GRN)SUCCESS$(D)]
+_INFO 			= [$(B)$(BLU)INFO$(D)]
+_NORM 			= [$(B)$(YEL)Norminette$(D)]
+_NORM_SUCCESS 	= $(B)$(GRN)=== OK:$(D)
+_NORM_INFO 		= $(B)$(BLU)File no:$(D)
 
 #==============================================================================#
 #                            FLAGS & CMDS                                      #
@@ -50,7 +50,7 @@ all: $(NAME)	## Compile Basic libft
 
 $(BUILD_PATH):
 	@$(MKDIR_P) $(BUILD_PATH)
-	@echo " $(YEL)Creating $(BUILD_PATH) folder:$(D) $(_SUCCESS)"
+	@echo "  $(B)$(GOLD)Creating$(BUILD_PATH)folder:$(D) $(_SUCCESS)"
 
 $(BUILD_PATH)/%.o: $(LIBFT_PATH)/%.c
 	@echo -n "$(GRN)█$(D)"
@@ -65,34 +65,34 @@ $(BUILD_PATH)/%.o: $(GNL_PATH)/%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(BUILD_PATH) $(OBJS)
-	@echo " $(YEL)Archiving $(_NAME) archive$(D)"
-	$(AR) $(NAME) $(OBJS)
-	@echo " $(_NAME) archived: $(_SUCCESS) $(YEL)🖔$(D)"
+	@echo " $(GOLD)Archiving $(_NAME) archive$(D)"
+	@$(AR) $(NAME) $(OBJS)
+	@echo "   $(B)$(_NAME) archived: $(_SUCCESS)$(GOLD)$(D)"
 
 bonus: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS)	## Compile libft with bonus
-	@echo " $(YEL)Archiving $(_NAME) w/ bonus$(D)"
-	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
-	@echo " $(_NAME) archived w/ bonus: $(_SUCCESS) $(YEL)🖔$(D)"
+	@echo " $(GOLD)Archiving $(_NAME) w/ bonus$(D)"
+	@$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
+	@echo " $(_NAME) archived w/ bonus: $(_SUCCESS) $(GOLD)🖔$(D)"
 
 extra: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(GNL_OBJS) $(PRINTF_OBJS) $(FPRINTF_OBJS) ## Compile libft with extra
-	@echo " $(YEL)Archiving $(_NAME)$(D)"
+	@echo " $(GOLD)Archiving $(_NAME)$(D)"
 	@$(AR) $(NAME) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(GNL_OBJS) $(PRINTF_OBJS) $(FPRINTF_OBJS)
-	@echo " $(_NAME) archived: $(_SUCCESS) $(YEL)🖔$(D)"
+	@echo " $(_NAME) archived: $(_SUCCESS) $(GOLD)🖔$(D)"
 
 
 clean:			## Clean libft binaries
 	@echo "* $(RED)Removing libft binaries$(D)"
-	$(RM) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(GNL_OBJS) $(PRINTF_OBJS)
-	@echo "* $(YEL)Cleaning libft binaries!$(D) $(_SUCCESS) $(YEL)🖔$(D)"
+	@$(RM) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(GNL_OBJS) $(PRINTF_OBJS)
+	@echo "* $(GOLD)Cleaning libft binaries!$(D) $(_SUCCESS) $(GOLD)🖔$(D)"
 
 fclean: clean	## Clean libft archive
 	@echo " $(RED)Removing $(NAME) archive and .build directory$(D)"
-	$(RM) $(NAME)
-	$(RM) $(BUILD_PATH)
-	@echo " $(YEL)Cleaning $(NAME) archive and .build directory!$(D) $(_SUCCESS) $(YEL)🖔$(D)"
+	@$(RM) $(NAME)
+	@$(RM) $(BUILD_PATH)
+	@echo " $(GOLD)Cleaning $(NAME) archive and .build directory!$(D) $(_SUCCESS) $(GOLD)🖔$(D)"
 
 re: fclean extra	## Clean and re-compile libft
-	@echo " Cleaning & re-compiling libft!=: $(_SUCCESS) $(YEL)🖔$(D)"
+	@echo " Cleaning & re-compiling libft!=: $(_SUCCESS) $(GOLD)🖔$(D)"
 
 .PHONY: all bonus extra clean fclean re help
 
@@ -118,6 +118,20 @@ BBLU	= $(shell tput setaf 12)
 BMAG	= $(shell tput setaf 13)
 BCYA	= $(shell tput setaf 14)
 BWHI	= $(shell tput setaf 15)
-D 		= $(shell tput sgr0)
-BEL 	= $(shell tput bel)
-CLR 	= $(shell tput el 1)
+
+# Extended colors
+ORG     = $(shell tput setaf 208)  # Orange
+PINK    = $(shell tput setaf 205)  # Pink
+PURP    = $(shell tput setaf 93)   # Purple
+LIME    = $(shell tput setaf 154)  # Lime
+AQUA    = $(shell tput setaf 87)   # Aqua
+GOLD    = $(shell tput setaf 220)  # Gold
+SILV    = $(shell tput setaf 250)  # Silver
+NAVY    = $(shell tput setaf 17)   # Navy Blue
+TEAL    = $(shell tput setaf 23)   # Teal
+WINE    = $(shell tput setaf 52)   # Wine Red
+
+# Reset and special
+D       = $(shell tput sgr0)
+BEL     = $(shell tput bel)
+CLR     = $(shell tput el 1)
