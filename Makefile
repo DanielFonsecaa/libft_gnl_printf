@@ -18,7 +18,7 @@ PRINTF_OBJS	= $(addprefix $(BUILD_PATH)/, $(notdir $(PRINTF_SRC:.c=.o)))
 GNL_OBJS	= $(addprefix $(BUILD_PATH)/, $(notdir $(GNL_SRC:.c=.o)))
 
 ### Message Vars
-_NAME	 		= [$(B)$(MAG)libft$(D)]
+_NAME	 		= [$(B)$(AQUA)libft$(D)]
 _SUCCESS 		= [$(B)$(GRN)SUCCESS$(D)]
 _INFO 			= [$(B)$(BLU)INFO$(D)]
 _NORM 			= [$(B)$(YEL)Norminette$(D)]
@@ -50,24 +50,24 @@ all: $(NAME)	## Compile Basic libft
 
 $(BUILD_PATH):
 	@$(MKDIR_P) $(BUILD_PATH)
-	@echo "  $(B)$(GOLD)Creating$(BUILD_PATH)folder:$(D) $(_SUCCESS)"
+	@echo "  $(B)$(GOLD)Creating $(BUILD_PATH) folder :$(D) $(_SUCCESS)"
 
 $(BUILD_PATH)/%.o: $(LIBFT_PATH)/%.c
-	@echo -n "$(GRN)█$(D)"
+#	@echo -n "$(GRN)█$(D)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(BUILD_PATH)/%.o: $(PRINTF_PATH)/%.c
-	@echo -n "$(GRN)█$(D)"
+#	@echo -n "$(GRN)█$(D)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(BUILD_PATH)/%.o: $(GNL_PATH)/%.c
-	@echo -n "$(GRN)█$(D)"
+#@echo -n "$(GRN)█$(D)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(BUILD_PATH) $(OBJS)
 	@echo " $(GOLD)Archiving $(_NAME) archive$(D)"
 	@$(AR) $(NAME) $(OBJS)
-	@echo "   $(B)$(_NAME) archived: $(_SUCCESS)$(GOLD)$(D)"
+	@echo "   $(B)$(_NAME) archived : $(_SUCCESS)$(GOLD)$(D)"
 
 bonus: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS)	## Compile libft with bonus
 	@echo " $(GOLD)Archiving $(_NAME) w/ bonus$(D)"
@@ -75,9 +75,8 @@ bonus: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS)	## Compile libft with bonus
 	@echo " $(_NAME) archived w/ bonus: $(_SUCCESS) $(GOLD)🖔$(D)"
 
 extra: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(GNL_OBJS) $(PRINTF_OBJS) $(FPRINTF_OBJS) ## Compile libft with extra
-	@echo " $(GOLD)Archiving $(_NAME)$(D)"
 	@$(AR) $(NAME) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(GNL_OBJS) $(PRINTF_OBJS) $(FPRINTF_OBJS)
-	@echo " $(_NAME) archived: $(_SUCCESS) $(GOLD)🖔$(D)"
+	@echo "    $(_NAME) archived : $(_SUCCESS)✔︎ 💾$(D)"
 
 
 clean:			## Clean libft binaries
