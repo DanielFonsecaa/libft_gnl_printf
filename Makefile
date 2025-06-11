@@ -50,7 +50,6 @@ all: $(NAME)	## Compile Basic libft
 
 $(BUILD_PATH):
 	@$(MKDIR_P) $(BUILD_PATH)
-	@echo "  $(B)$(GOLD)Creating $(BUILD_PATH) folder :$(D) $(_SUCCESS)"
 
 $(BUILD_PATH)/%.o: $(LIBFT_PATH)/%.c
 #	@echo -n "$(GRN)█$(D)"
@@ -76,7 +75,7 @@ bonus: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS)	## Compile libft with bonus
 
 extra: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(GNL_OBJS) $(PRINTF_OBJS) $(FPRINTF_OBJS) ## Compile libft with extra
 	@$(AR) $(NAME) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(GNL_OBJS) $(PRINTF_OBJS) $(FPRINTF_OBJS)
-	@echo "  $(B)$(AQUA)libft archived : $(_SUCCESS) ✔︎ 💾$(D)"
+	@echo " $(B)$(AQUA)libft archived : $(_SUCCESS) ✔︎ 💾$(D)"
 
 
 clean:			## Clean libft binaries
