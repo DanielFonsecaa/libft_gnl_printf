@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-fons <dda-fons@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dda-fons <dda-fons@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:08:11 by dda-fons          #+#    #+#             */
-/*   Updated: 2025/05/29 12:13:17 by dda-fons         ###   ########.fr       */
+/*   Updated: 2025/07/29 19:32:40 by dda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_strcmp(char *s1, char *s2);
+int		ft_iswhite_space(int c);
+int		ft_isspace(int c);
+
 
 #endif
